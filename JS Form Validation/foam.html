@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h2 class="heading">Mini Project (Form Validation)</h2>
+
+    <div class="formdesign">
+
+        <form onsubmit="return validationfoam()">
+            <label>First Name:</label><br>
+            <input type="text" id="fname" pattern="[A-Za-z]{15}">
+            <span id="fnameError" class="color"></span>
+            <br>
+            <br>
+
+            <label>Last Name:</label><br>
+            <input type="text" id="lname" pattern="[A-Za-z]{5}">
+            <span id="lnameError" class="color"></span>
+            <br>
+            <br>
+
+            <label>Email:</label><br>
+            <input type="email" id="ename" \^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$\;>
+            <span id="enameError" class="color"></span>
+            <br>
+            <br>
+
+            <label>Password:</label><br>
+            <input type="password" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <span id="passError" class="color"></span>
+            <br>
+            <br>
+
+            <label>Confirm Password:</label><br>
+            <input type="password" id="confirmpass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <b><span id="confirmpassError" class="color"></span></b>
+
+            <br><br>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+    </div>
+
+
+
+     <!-- JavaScript -->
+    <script>
+
+        function validationfoam() {
+
+            //first name
+            let fname = document.getElementById("fname").value;
+            let firstnameError = document.getElementById("fnameError");
+            firstnameError.innerHTML = " ";
+
+            //last name
+            let lname = document.getElementById("lname").value;
+            let lastnameError = document.getElementById("lnameError");
+            lastnameError.innerHTML = " ";
+
+            //email name
+            let ename = document.getElementById("ename").value;
+            let emailError = document.getElementById("enameError");
+            emailError.innerHTML = " ";
+
+            //password name
+            let pass = document.getElementById("pass").value;
+            let passError = document.getElementById("passError");
+            passError.innerHTML = " ";
+
+            //confirm password name
+            let confirmpass = document.getElementById("confirmpass").value;
+            let confirmpassError = document.getElementById("confirmpassError");
+            confirmpassError.innerHTML = " ";
+
+
+            //first name
+            if (fname == "") {
+                firstnameError.innerHTML = '*First Name is Required!'
+                return false;
+            }
+
+            //last name
+            if (lname == "") {
+                lastnameError.innerHTML = '*Last Name is Required!'
+                return false;
+            }
+
+            //email name
+            if (ename == "") {
+                emailError.innerHTML = '*Email is Required!'
+                return false;
+            }
+
+            //password
+            if (pass == "") {
+                passError.innerHTML = '*Password is Required!'
+                return false;
+            }
+
+            //confirm password
+            if (confirmpass == "") {
+                confirmpassError.innerHTML = 'Confirm Password is Required!'
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+
+</body>
+</html>
